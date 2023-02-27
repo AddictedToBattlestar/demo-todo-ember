@@ -1,0 +1,9 @@
+<ul>
+  {{#each @todos as |todo|}}
+    <li>
+      <LinkTo @route="todo-listing.by-id" @model={{todo}}>
+        {{todo.title}}
+      </LinkTo>
+    </li>
+  {{/each}}
+</ul>

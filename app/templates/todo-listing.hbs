@@ -3,7 +3,10 @@
   <header class="box">HEADER</header>
   <div class="new-todo box">NEW</div>
   <div class="search box">SEARCH</div>
-  <aside class="box">ASIDE</aside>
+  <aside class="box">
+    ASIDE
+    <NavBar @todos={{@model}}/>
+  </aside>
   <section class="body-content box">
     BODY CONTENT
     {{outlet}}
