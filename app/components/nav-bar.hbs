@@ -2,7 +2,10 @@
   <ul>
     {{#each @todos as |todo|}}
       <li>
-        <LinkTo @route="todo-listing.by-id" @model={{todo}}>
+        <LinkTo
+          @route="todo-listing.by-id"
+          @model={{todo}}
+          class={{if (eq todo.id this.selectedTodo.id) 'selected-todo'}}>
           {{todo.title}}
         </LinkTo>
       </li>

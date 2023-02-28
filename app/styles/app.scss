@@ -1,7 +1,7 @@
 @import 'layout';
 @import 'colors';
-@import 'templates/registry';
-@import 'components/registry';
+@import 'registry-template';
+@import 'registry-component';
 
 body {
   background-color: $background-color;

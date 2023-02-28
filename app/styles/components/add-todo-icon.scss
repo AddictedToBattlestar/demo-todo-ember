@@ -1,0 +1,12 @@
+.add-todo-icon {
+  padding: 0.5em;
+  border-radius: 0.35em;
+  &.add-new-todo-active {
+    background-color: $color1;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    color: $font-color;
+  }
+}

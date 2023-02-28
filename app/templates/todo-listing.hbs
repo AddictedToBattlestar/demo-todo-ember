@@ -1,15 +1,15 @@
 {{page-title "TodoListing"}}
 <div class="layout-container">
-  <header class="box">HEADER</header>
+  <header class="box box-padding">HEADER</header>
   <div class="new-todo box">
     <AddTodoIcon/>
   </div>
-  <div class="search box">SEARCH</div>
-  <aside class="box">
+  <div class="search box box-padding">SEARCH</div>
+  <aside class="box box-padding">
     ASIDE
     <NavBar @todos={{@model}}/>
   </aside>
-  <section class="body-content box">
+  <section class="body-content box box-padding">
     BODY CONTENT
     {{outlet}}
   </section>
