@@ -1,0 +1,26 @@
+<div>TODO listing by ID content</div>
+<TodoEditor::TextInput
+  @idSuffix="title"
+  @label="Title"
+  @value={{@todo.title}}
+  @onChange={{set @todo "title"}}
+/>
+<TodoEditor::TextInput
+  @idSuffix="description"
+  @label="Description"
+  @value={{@todo.description}}
+  @onChange={{set @todo "description"}}
+/>
+<TodoEditor::CheckboxInput
+  @idSuffix="is-complete"
+  @label="Is Complete?"
+  @value={{@todo.complete}}
+  @onChange={{set @todo "complete"}}
+/>
+<TodoEditor::DateInput
+  @idSuffix="due-date"
+  @label="Due Date"
+  @value={{@todo.dueDate}}
+  @onChange={{set @todo "dueDate"}}
+/>
+<button type="button" {{on "click" this.saveTodo}}>Save</button>

@@ -1,0 +1,13 @@
+{{#let "todo-editor-text-input" as |scope|}}
+  <div class={{scope}}>
+    <label for={{concat scope "_" @idSuffix}}>
+      {{@label}}
+    </label>
+    <input
+      type="datetime-local"
+      id={{concat scope "_" @idSuffix}}
+      value={{this.value}}
+      {{on "change" (pick "target.value" this.onChange)}}
+    >
+  </div>
+{{/let}}

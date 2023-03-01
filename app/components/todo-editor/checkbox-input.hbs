@@ -1,0 +1,13 @@
+{{#let "todo-editor-checkbox" as |scope|}}
+  <div class={{scope}}>
+    <label for={{concat scope "_" @idSuffix}}>
+      {{@label}}
+    </label>
+    <input
+      type="checkbox"
+      id={{concat scope "_" @idSuffix}}
+      checked={{@value}}
+      {{on "change" (pick "target.checked" @onChange)}}
+    >
+  </div>
+{{/let}}
