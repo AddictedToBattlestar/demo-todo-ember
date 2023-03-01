@@ -1,14 +1,14 @@
-<div class="nav-bar">
+<nav class="nav-bar">
   <ul>
     {{#each @todos as |todo|}}
       <li>
         <LinkTo
           @route="todo-listing.by-id"
           @model={{todo}}
-          class={{if (eq todo.id this.selectedTodo.id) 'selected-todo'}}>
+          class={{if (eq todo.id @selectedTodo.id) 'selected-todo'}}>
           {{todo.title}}
         </LinkTo>
       </li>
     {{/each}}
   </ul>
-</div>
+</nav>

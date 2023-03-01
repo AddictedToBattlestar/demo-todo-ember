@@ -1,4 +1,4 @@
-<LinkTo @route="todo-listing.new" class="add-todo-icon {{if (is-empty this.selectedTodo) 'add-new-todo-active'}}">
+<LinkTo @route="todo-listing.new" class="add-todo-icon {{if @isSelected 'add-new-todo-active'}}">
   <FaIcon @icon="plus" />
 </LinkTo>
 
