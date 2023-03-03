@@ -3,6 +3,8 @@ import { DS, ModelSchema } from 'ember-data';
 import { isArray } from '@ember/array';
 import { ModelRegistry } from "ember-data/model";
 
+// I am not proud of anything in this file.
+
 export default class ApplicationSerializer extends RESTSerializer {
   normalizeResponse(
     store: DS.Store,

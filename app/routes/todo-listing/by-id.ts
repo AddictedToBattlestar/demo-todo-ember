@@ -16,7 +16,6 @@ export default class TodoListingByIdRoute extends Route {
   declare todoService: TodoService;
 
   async model({todo_id}: Args) {
-    console.log('TodoRoute - todo_id', todo_id);
     return this.store.findRecord('todo', todo_id);
   }
 
