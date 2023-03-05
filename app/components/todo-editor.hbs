@@ -1,26 +1,25 @@
-<div>TODO listing by ID content</div>
 <TodoEditor::TextInput
   @idSuffix="title"
   @label="Title"
-  @value={{@todo.title}}
-  @onChange={{set @todo "title"}}
+  @value={{this.changeset.title}}
+  @onChange={{set this "changeset.title"}}
 />
 <TodoEditor::TextInput
   @idSuffix="description"
   @label="Description"
-  @value={{@todo.description}}
-  @onChange={{set @todo "description"}}
+  @value={{this.changeset.description}}
+  @onChange={{set this "changeset.description"}}
 />
 <TodoEditor::CheckboxInput
   @idSuffix="is-complete"
   @label="Is Complete?"
-  @value={{@todo.complete}}
-  @onChange={{set @todo "complete"}}
+  @value={{this.changeset.complete}}
+  @onChange={{set this "changeset.complete"}}
 />
 <TodoEditor::DateInput
   @idSuffix="due-date"
   @label="Due Date"
-  @value={{@todo.dueDate}}
-  @onChange={{set @todo "dueDate"}}
+  @value={{this.changeset.dueDate}}
+  @onChange={{set this "changeset.dueDate"}}
 />
 <button type="button" {{on "click" this.saveTodo}}>Save</button>
