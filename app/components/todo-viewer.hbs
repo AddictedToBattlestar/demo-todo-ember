@@ -1,0 +1,39 @@
+<div class="todo-viewer">
+  <div>
+    <label for="todo-viewer-title">Title</label>
+    <input
+      id="todo-viewer-title"
+      type="text"
+      value={{@todo.title}}
+      disabled
+    />
+  </div>
+  <div>
+    <label for="todo-viewer-description">Description</label>
+    <input
+      id="todo-viewer-description"
+      type="text"
+      value={{@todo.description}}
+      disabled
+    />
+  </div>
+  <div>
+    <label for="todo-viewer-is-complete">Is Complete?</label>
+    <input
+      id="todo-viewer-is-complete"
+      type="checkbox"
+      checked={{@todo.complete}}
+      disabled
+    />
+  </div>
+  <div>
+    <label for="todo-viewer-due-date">Due Date</label>
+    <input
+      id="todo-viewer-due-date"
+      type="date"
+      value={{@todo.dueDate}}
+      disabled
+    />
+  </div>
+  <button type="button" {{on "click" this.transitionToEdit}}>Edit</button>
+</div>

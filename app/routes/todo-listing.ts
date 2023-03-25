@@ -7,7 +7,6 @@ export default class TodoListingRoute extends Route {
   declare store: Store;
 
   async model() {
-    console.log('TodoListingRoute');
     return this.store.findAll('todo');
   }
 }

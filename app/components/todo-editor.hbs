@@ -1,0 +1,28 @@
+<div class="todo-editor">
+  <TodoEditor::TextInput
+    @idSuffix="title"
+    @label="Title"
+    @value={{this.changeset.title}}
+    @onChange={{set this "changeset.title"}}
+  />
+  <TodoEditor::TextInput
+    @idSuffix="description"
+    @label="Description"
+    @value={{this.changeset.description}}
+    @onChange={{set this "changeset.description"}}
+  />
+  <TodoEditor::CheckboxInput
+    @idSuffix="is-complete"
+    @label="Is Complete?"
+    @value={{this.changeset.complete}}
+    @onChange={{set this "changeset.complete"}}
+  />
+  <TodoEditor::DateInput
+    @idSuffix="due-date"
+    @label="Due Date"
+    @value={{this.changeset.dueDate}}
+    @onChange={{set this "changeset.dueDate"}}
+  />
+  <button type="button" {{on "click" this.save}}>Save</button>
+  <button type="button" {{on "click" this.cancel}}>Cancel</button>
+</div>
