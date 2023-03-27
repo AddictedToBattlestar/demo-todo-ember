@@ -6,6 +6,7 @@
     <input
       type="text"
       id={{concat scope "_" @idSuffix}}
+      class={{if @isInvalid "todo-editor__input--invalid"}}
       value={{@value}}
       {{on "input" (pick "target.value" @onChange)}}
     >

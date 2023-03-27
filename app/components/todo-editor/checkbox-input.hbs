@@ -1,4 +1,4 @@
-{{#let "todo-editor-checkbox" as |scope|}}
+{{#let "todo-editor__checkbox" as |scope|}}
   <div class={{scope}}>
     <label for={{concat scope "_" @idSuffix}}>
       {{@label}}
@@ -6,6 +6,7 @@
     <input
       type="checkbox"
       id={{concat scope "_" @idSuffix}}
+      class={{if @isInvalid "todo-editor__input--invalid"}}
       checked={{@value}}
       {{on "change" (pick "target.checked" @onChange)}}
     >

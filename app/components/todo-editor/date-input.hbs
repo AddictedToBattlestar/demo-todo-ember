@@ -6,6 +6,7 @@
     <input
       type="datetime-local"
       id={{concat scope "_" @idSuffix}}
+      class={{if @isInvalid "todo-editor__input--invalid"}}
       value={{this.value}}
       {{on "change" (pick "target.value" this.onChange)}}
     >

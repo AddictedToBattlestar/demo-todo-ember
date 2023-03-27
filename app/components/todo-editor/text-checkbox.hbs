@@ -6,6 +6,7 @@
     <input
       type="checkbox"
       id={{concat scope "_" @idSuffix}}
+      class={{if @isInvalid "todo-editor__input--invalid"}}
       checked={{@value}}
       {{on "change" (pick "target.value" @onChange)}}
     >

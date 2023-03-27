@@ -4,25 +4,42 @@
     @label="Title"
     @value={{this.changeset.title}}
     @onChange={{set this "changeset.title"}}
+    @isInvalid={{this.changeset.error.title.validation}}
   />
   <TodoEditor::TextInput
     @idSuffix="description"
     @label="Description"
     @value={{this.changeset.description}}
     @onChange={{set this "changeset.description"}}
+    @isInvalid={{this.changeset.error.description.validation}}
   />
   <TodoEditor::CheckboxInput
     @idSuffix="is-complete"
     @label="Is Complete?"
     @value={{this.changeset.complete}}
     @onChange={{set this "changeset.complete"}}
+    @isInvalid={{this.changeset.error.complete.validation}}
   />
   <TodoEditor::DateInput
     @idSuffix="due-date"
     @label="Due Date"
     @value={{this.changeset.dueDate}}
     @onChange={{set this "changeset.dueDate"}}
+    @isInvalid={{this.changeset.error.dueDate.validation}}
   />
   <button type="button" {{on "click" this.save}}>Save</button>
   <button type="button" {{on "click" this.cancel}}>Cancel</button>
+  {{log "this.changeset.error.title.validation" this.changeset.error.title.validation}}
+
+  {{#if this.changeset.errors}}
+    <div class="errors">
+      <ul>
+        {{#each this.changeset.errors as |error|}}
+          {{#each error.validation as |validation|}}
+            <li>{{validation}}</li>
+          {{/each}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
 </div>

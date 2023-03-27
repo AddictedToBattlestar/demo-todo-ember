@@ -1,0 +1,8 @@
+@import "../colors";
+
+.todo-editor {
+  &__input--invalid {
+    border: 2px solid $alert-color;
+    background-color: $alert-background-color;
+  }
+}
