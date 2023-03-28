@@ -23,6 +23,10 @@ export default class TodoListingComponent extends Component<Args> {
     });
   }
 
+  get isNewTodoRouteActive() {
+    return this.router.currentRouteName === 'todo-listing.new';
+  }
+
   @action
   transitionToListing() {
     this.todoService.setSelectedTodo(null);

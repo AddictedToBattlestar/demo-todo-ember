@@ -16,6 +16,7 @@ export default class NewTodoComponent extends Component {
     description: '',
     dueDate: null,
   };
+
   @action
   async onSave(rawTodoModel: {}) {
     const newTodo = this.store.createRecord('todo', rawTodoModel);

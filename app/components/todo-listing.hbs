@@ -3,7 +3,7 @@
     TODO Listing Demo Application
   </header>
   <div class="new-todo box">
-    <AddTodoIcon @isSelected={{is-empty this.selectedTodo}}/>
+    <AddTodoIcon @isSelected={{this.isNewTodoRouteActive}}/>
   </div>
   <div class="search box box-padding">SEARCH</div>
   <aside class="box box-padding">
@@ -13,5 +13,3 @@
     {{yield}}
   </section>
 </div>
-
-
