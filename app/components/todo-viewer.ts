@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import TodoModel from 'todo/models/todo';
+import RouterService from '@ember/routing/router-service';
 import { action } from '@ember/object';
 import { inject } from '@ember/service';
-import RouterService from '@ember/routing/router-service';
 
 export interface Args {
   todo: TodoModel;

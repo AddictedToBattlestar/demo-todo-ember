@@ -1,16 +1,18 @@
 import Component from '@glimmer/component';
-import { inject } from '@ember/service';
 import TodoService from 'todo/services/todo';
 import TodoModel from 'todo/models/todo';
+import RouterService from '@ember/routing/router-service';
+import { inject } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export interface Args {
   todos: Array<TodoModel>;
 }
 
 export default class TodoListingComponent extends Component<Args> {
-  @inject('todo')
-  declare todoService: TodoService;
+  @inject('todo') declare todoService: TodoService;
+  @inject declare router: RouterService;
   @tracked
   selectedTodo: null | TodoModel = null;
 
@@ -19,5 +21,11 @@ export default class TodoListingComponent extends Component<Args> {
     this.todoService.selectedTodoMessages$.subscribe((newSelectedTodo) => {
       this.selectedTodo = newSelectedTodo;
     });
+  }
+
+  @action
+  transitionToListing() {
+    this.todoService.setSelectedTodo(null);
+    this.router.transitionTo('todo-listing');
   }
 }

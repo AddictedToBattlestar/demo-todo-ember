@@ -1,5 +1,7 @@
 <div class="layout-container">
-  <header class="box box-padding">TODO Listing Demo Application</header>
+  <header class="box box-padding" {{on "click" this.transitionToListing}}>
+    TODO Listing Demo Application
+  </header>
   <div class="new-todo box">
     <AddTodoIcon @isSelected={{is-empty this.selectedTodo}}/>
   </div>

@@ -13,6 +13,7 @@ import RouterService from '@ember/routing/router-service';
 export interface Args {
   todo: TodoModel;
   onSave: ((todoModel: TodoModel | {}) => void) | null;
+  onCancel: () => void | null;
 }
 export default class TodoEditorComponent extends Component<Args> {
   @inject declare router: RouterService;
@@ -38,6 +39,7 @@ export default class TodoEditorComponent extends Component<Args> {
   @action
   cancel() {
     this.changeset?.rollback();
+    this.args.onCancel?.();
     if (this.args.todo.id) {
       this.router.transitionTo('todo-listing.by-id', this.args.todo);
     } else {
