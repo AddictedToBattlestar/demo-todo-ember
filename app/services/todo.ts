@@ -7,7 +7,6 @@ export default class TodoService extends Service {
   public readonly selectedTodoMessages$ = defer(() => this.selectedTodo.asObservable());
 
   setSelectedTodo(todo: null | TodoModel) {
-    console.debug('TodoService.setSelectedTodo - id', todo?.id);
     this.selectedTodo.next(todo);
   }
 }

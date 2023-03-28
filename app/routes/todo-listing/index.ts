@@ -1,5 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class TodoListingIndexRoute extends Route {
-  beforeModel() {}
-}
+export default class TodoListingIndexRoute extends Route {}

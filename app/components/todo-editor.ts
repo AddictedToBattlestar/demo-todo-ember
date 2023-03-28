@@ -19,19 +19,29 @@ export default class TodoEditorComponent extends Component<Args> {
   // @ts-ignore - Typescript is not seeing this exported from glimmer even though it works
   @cached
   get changeset() {
-    return Changeset(this.args.todo, lookupValidator(TodoModelValidations), TodoModelValidations);
+    return Changeset(
+      this.args.todo,
+      lookupValidator(TodoModelValidations),
+      TodoModelValidations
+    );
   }
   @action
-  async save() {
+  async save(event: Event) {
+    event.preventDefault(); //prevent form submission from reloading the page
     await this.changeset.validate();
     if (this.changeset.isValid) {
       const result = await this.changeset?.save();
       this.args.onSave?.(result.data);
+      this.router.transitionTo('todo-listing.by-id', result);
     }
   }
   @action
   cancel() {
     this.changeset?.rollback();
-    this.router.transitionTo('todo-listing.by-id', this.args.todo);
+    if (this.args.todo.id) {
+      this.router.transitionTo('todo-listing.by-id', this.args.todo);
+    } else {
+      this.router.transitionTo('todo-listing');
+    }
   }
 }

@@ -17,10 +17,6 @@ export default class TodoListingComponent extends Component<Args> {
   constructor(owner: unknown, args: Args) {
     super(owner, args);
     this.todoService.selectedTodoMessages$.subscribe((newSelectedTodo) => {
-      console.debug(
-        'TodoListingComponent.constructor, todoService.selectedId.subscribe - newSelectedTodo.id',
-        newSelectedTodo?.id
-      );
       this.selectedTodo = newSelectedTodo;
     });
   }
