@@ -1,5 +1,5 @@
 <div class="layout-container">
-  <header class="box box-padding">HEADER</header>
+  <header class="box box-padding">TODO Listing Demo Application</header>
   <div class="new-todo box">
     <AddTodoIcon @isSelected={{is-empty this.selectedTodo}}/>
   </div>
@@ -8,7 +8,6 @@
     <NavBar @todos={{@todos}} @selectedTodo={{this.selectedTodo}}/>
   </aside>
   <section class="body-content box box-padding">
-    BODY CONTENT
     {{yield}}
   </section>
 </div>
