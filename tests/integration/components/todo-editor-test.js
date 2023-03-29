@@ -7,20 +7,15 @@ module('Integration | Component | todo-editor', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('model', {
+      complete: false,
+      title: 'foo',
+      description: '',
+      dueDate: null,
+    });
 
-    await render(hbs`<TodoEditor />`);
+    await render(hbs`<TodoEditor @todo={{this.model}}/>`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <TodoEditor>
-        template block text
-      </TodoEditor>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.strictEqual(this.element.querySelector('#todo-editor-text-input_title').value, 'foo', 'title is foo');
   });
 });

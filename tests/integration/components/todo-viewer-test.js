@@ -2,25 +2,21 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'todo/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { set } from '@ember/object';
 
 module('Integration | Component | todo-viewer', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    set(this, 'model', {
+      complete: false,
+      title: 'foo',
+      description: '',
+      dueDate: null,
+    });
 
-    await render(hbs`<TodoViewer />`);
+    await render(hbs`<TodoViewer @todo={{this.model}}/>`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <TodoViewer>
-        template block text
-      </TodoViewer>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.strictEqual(this.element.querySelector('#todo-viewer-title').value, 'foo', 'title is foo');
   });
 });

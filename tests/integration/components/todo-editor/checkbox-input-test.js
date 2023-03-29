@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'todo/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { set } from '@ember/object';
 
 module(
   'Integration | Component | todo-editor/checkbox-input',
@@ -9,21 +10,19 @@ module(
     setupRenderingTest(hooks);
 
     test('it renders', async function (assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+      set(this, 'value', true);
+      set(this, 'onChangeValue', null);
+      set(this, 'isInvalid', null);
 
-      await render(hbs`<TodoEditor::CheckboxInput />`);
+      await render(hbs`<TodoEditor::CheckboxInput
+        @idSuffix="fake-id-suffix"
+        @label="fake-label"
+        @value={{this.value}}
+        @onChange={{set this "onChangeValue"}}
+        @isInvalid={{this.isInvalid}}
+      />`);
 
-      assert.dom(this.element).hasText('');
-
-      // Template block usage:
-      await render(hbs`
-      <TodoEditor::CheckboxInput>
-        template block text
-      </TodoEditor::CheckboxInput>
-    `);
-
-      assert.dom(this.element).hasText('template block text');
+      assert.ok(this.element.querySelector('#todo-editor-checkbox-input_fake-id-suffix').checked, 'checkbox is checked');
     });
   }
 );

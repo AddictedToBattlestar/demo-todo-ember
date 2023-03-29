@@ -2,25 +2,20 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'todo/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { set } from '@ember/object';
 
 module('Integration | Component | todo-listing', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    set(this, 'model', []);
 
-    await render(hbs`<TodoListing />`);
-
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
     await render(hbs`
-      <TodoListing>
+      <TodoListing @todos={{this.model}}>
         template block text
       </TodoListing>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.equal(this.element.querySelector('.body-content').textContent.trim(), 'template block text', 'template block text is rendered');
   });
 });

@@ -2,25 +2,24 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'todo/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { set } from "@ember/object";
 
 module('Integration | Component | todo-editor/text-input', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    set(this, 'value', 'foo');
+    set(this, 'onChangeValue', null);
+    set(this, 'isInvalid', null);
 
-    await render(hbs`<TodoEditor::TextInput />`);
+    await render(hbs`<TodoEditor::TextInput
+      @idSuffix="fake-id-suffix"
+      @label="fake-label"
+      @value={{this.value}}
+      @onChange={{set this "onChangeValue"}}
+      @isInvalid={{this.isInvalid}}
+    />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <TodoEditor::TextInput>
-        template block text
-      </TodoEditor::TextInput>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.strictEqual(this.element.querySelector('#todo-editor-text-input_fake-id-suffix').value, 'foo', 'text is foo');
   });
 });
