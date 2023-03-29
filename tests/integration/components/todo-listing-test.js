@@ -16,6 +16,10 @@ module('Integration | Component | todo-listing', function (hooks) {
       </TodoListing>
     `);
 
-    assert.equal(this.element.querySelector('.body-content').textContent.trim(), 'template block text', 'template block text is rendered');
+    assert.deepEqual(
+      this.element.querySelector('.body-content').textContent.trim(),
+      'template block text',
+      'template block text is rendered'
+    );
   });
 });

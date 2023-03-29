@@ -16,6 +16,10 @@ module('Integration | Component | todo-editor', function (hooks) {
 
     await render(hbs`<TodoEditor @todo={{this.model}}/>`);
 
-    assert.strictEqual(this.element.querySelector('#todo-editor-text-input_title').value, 'foo', 'title is foo');
+    assert.strictEqual(
+      this.element.querySelector('#todo-editor-text-input_title').value,
+      'foo',
+      'title is foo'
+    );
   });
 });

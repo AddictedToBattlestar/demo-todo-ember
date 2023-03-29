@@ -17,6 +17,10 @@ module('Integration | Component | todo-viewer', function (hooks) {
 
     await render(hbs`<TodoViewer @todo={{this.model}}/>`);
 
-    assert.strictEqual(this.element.querySelector('#todo-viewer-title').value, 'foo', 'title is foo');
+    assert.strictEqual(
+      this.element.querySelector('#todo-viewer-title').value,
+      'foo',
+      'title is foo'
+    );
   });
 });

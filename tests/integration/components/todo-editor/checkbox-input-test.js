@@ -22,7 +22,11 @@ module(
         @isInvalid={{this.isInvalid}}
       />`);
 
-      assert.ok(this.element.querySelector('#todo-editor-checkbox-input_fake-id-suffix').checked, 'checkbox is checked');
+      assert.ok(
+        this.element.querySelector('#todo-editor-checkbox-input_fake-id-suffix')
+          .checked,
+        'checkbox is checked'
+      );
     });
   }
 );

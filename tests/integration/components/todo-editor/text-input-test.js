@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'todo/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { set } from "@ember/object";
+import { set } from '@ember/object';
 
 module('Integration | Component | todo-editor/text-input', function (hooks) {
   setupRenderingTest(hooks);
@@ -20,6 +20,11 @@ module('Integration | Component | todo-editor/text-input', function (hooks) {
       @isInvalid={{this.isInvalid}}
     />`);
 
-    assert.strictEqual(this.element.querySelector('#todo-editor-text-input_fake-id-suffix').value, 'foo', 'text is foo');
+    assert.strictEqual(
+      this.element.querySelector('#todo-editor-text-input_fake-id-suffix')
+        .value,
+      'foo',
+      'text is foo'
+    );
   });
 });

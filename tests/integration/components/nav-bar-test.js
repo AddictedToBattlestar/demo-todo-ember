@@ -10,7 +10,9 @@ module('Integration | Component | nav-bar', function (hooks) {
     this.set('todos', []);
     this.set('selectedTodo', null);
 
-    await render(hbs`<NavBar @todos={{this.todos}} @selectedTodo={{this.selectedTodo}}/>`);
+    await render(
+      hbs`<NavBar @todos={{this.todos}} @selectedTodo={{this.selectedTodo}}/>`
+    );
 
     assert.dom(this.element).hasText('');
   });
