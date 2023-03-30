@@ -1,13 +1,15 @@
 <div class="layout-container">
   <header class="box box-padding" {{on "click" this.transitionToListing}}>
-    TODO Listing Demo Application
+    TODO Demo Application
   </header>
   <div class="new-todo box">
     <AddTodoIcon @isSelected={{this.isNewTodoRouteActive}}/>
   </div>
-  <div class="search box box-padding">SEARCH</div>
+  <div class="search box box-padding">
+    <input type="text" {{on "input" this.updateSearch}}>
+  </div>
   <aside class="box box-padding">
-    <NavBar @todos={{@todos}} @selectedTodo={{this.selectedTodo}}/>
+    <NavBar @todos={{this.filteredTodos}} @selectedTodo={{this.selectedTodo}}/>
   </aside>
   <section class="body-content box box-padding">
     {{yield}}
