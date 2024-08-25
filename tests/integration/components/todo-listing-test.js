@@ -19,7 +19,7 @@ module('Integration | Component | todo-listing', function (hooks) {
     assert.deepEqual(
       this.element.querySelector('.body-content').textContent.trim(),
       'template block text',
-      'template block text is rendered'
+      'template block text is rendered',
     );
   });
 });

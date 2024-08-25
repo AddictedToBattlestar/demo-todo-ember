@@ -19,7 +19,7 @@ module('Integration | Component | todo-editor', function (hooks) {
     assert.strictEqual(
       this.element.querySelector('#todo-editor-text-input_title').value,
       'foo',
-      'title is foo'
+      'title is foo',
     );
   });
 });

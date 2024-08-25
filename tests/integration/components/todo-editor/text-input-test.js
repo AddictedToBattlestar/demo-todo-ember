@@ -24,7 +24,7 @@ module('Integration | Component | todo-editor/text-input', function (hooks) {
       this.element.querySelector('#todo-editor-text-input_fake-id-suffix')
         .value,
       'foo',
-      'text is foo'
+      'text is foo',
     );
   });
 });

@@ -24,7 +24,7 @@ module('Integration | Component | todo-editor/date-input', function (hooks) {
       this.element.querySelector('#todo-editor-date-input_fake-id-suffix')
         .value,
       '2023-02-01T12:00',
-      'the date is 2023-02-01T12:00'
+      'the date is 2023-02-01T12:00',
     );
   });
 });

@@ -11,7 +11,7 @@ module('Integration | Component | nav-bar', function (hooks) {
     this.set('selectedTodo', null);
 
     await render(
-      hbs`<NavBar @todos={{this.todos}} @selectedTodo={{this.selectedTodo}}/>`
+      hbs`<NavBar @todos={{this.todos}} @selectedTodo={{this.selectedTodo}}/>`,
     );
 
     assert.dom(this.element).hasText('');

@@ -20,7 +20,7 @@ module('Integration | Component | todo-viewer', function (hooks) {
     assert.strictEqual(
       this.element.querySelector('#todo-viewer-title').value,
       'foo',
-      'title is foo'
+      'title is foo',
     );
   });
 });
